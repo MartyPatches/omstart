@@ -1,7 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var jquery = require('jquery');
 var jsmodule1 = require('./modules/jsmodule1.js');
-},{"./modules/jsmodule1.js":2,"jquery":3}],2:[function(require,module,exports){
+var parallax = require('./modules/parallax.js');
+},{"./modules/jsmodule1.js":2,"./modules/parallax.js":3,"jquery":4}],2:[function(require,module,exports){
 var $ = require('jquery');
 
 (function(){
@@ -10,8 +11,48 @@ var $ = require('jquery');
 			console.log("modultest2");
 		}
 	}
+
+    jsmodule1.init();
 })();
-},{"jquery":3}],3:[function(require,module,exports){
+},{"jquery":4}],3:[function(require,module,exports){
+var $ = require('jquery');
+
+(function(){
+    var parallax = {
+        init: function(){
+            $(document).ready(function(){
+                $('[data-type="background"]').each(function(){
+                    var $bgobj = $(this); // assigning the object
+
+                    $(window).scroll(function() {
+                        console.log("bgObject", $bgobj.offsetTop, $bgobj.offset().top, $bgobj.height());
+                        var yPos = -($(window).scrollTop() / $bgobj.data('speed'));
+
+                        // Put together our final background position
+                        var coords = yPos + 'px';
+
+                        console.log("scrtollTop()", $(window).scrollTop());
+                        console.log("innerHeight", window.innerHeight);
+                        var heightFromTop = $bgobj.offset().top - window.innerHeight;
+                        if($(window).scrollTop() > heightFromTop){
+                            if( heightFromTop > 0){
+                                console.log("NU SYNS DET", $(window).scrollTop(), heightFromTop, $bgobj.data('speed'));
+                                $bgobj.css({ backgroundPositionY: -(($(window).scrollTop() - heightFromTop) / $bgobj.data('speed')) + 'px' });
+                            } else {
+                                $bgobj.css({ backgroundPositionY: coords });
+                            }
+                        }
+
+
+                    });
+                });
+            });
+        }
+    }
+
+    parallax.init();
+})();
+},{"jquery":4}],4:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/

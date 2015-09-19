@@ -6,4 +6,6 @@ var $ = require('jquery');
 			console.log("modultest2");
 		}
 	}
+
+    jsmodule1.init();
 })();

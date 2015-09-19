@@ -1,3 +1,33 @@
+/* TYPOGRAPHY */
+html,
+body {
+  font-family: Helvetica, sans-serif;
+}
+/* COLORS */
+.top-margin {
+  margin-top: 100px;
+}
+.top-padding {
+  padding-top: 100px;
+}
+.top-wave {
+  width: 100%;
+  height: 32px;
+  margin-top: -16px;
+  background-image: url('UI/assets/media/images/wave3ups.png');
+}
+.top-wave.grey {
+  background-image: url('UI/assets/media/images/wave3greyups.png');
+}
+.bottom-wave {
+  width: 100%;
+  height: 32px;
+  background-image: url('UI/assets/media/images/wave3.png');
+}
+.bottom-wave.grey {
+  background-image: url('UI/assets/media/images/wave3grey.png');
+}
+/* MODULES */
 .modulename {
   background-color: #000;
 }
@@ -8,7 +38,7 @@
   color: #fff;
 }
 video {
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   z-index: -1;
@@ -25,7 +55,13 @@ video {
   background-size: cover;
 }
 header {
-  height: 100%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+header.image-bg {
+  background: url('UI/assets/media/images/hero-bg3.jpg') no-repeat fixed;
+  background-size: cover;
+  background-position: bottom;
 }
 .site-content {
   background-color: #fff;
@@ -37,7 +73,7 @@ header {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   text-align: center;
-  text-shadow: 1px 1px 1px #000;
+  /*text-shadow: 1px 1px 1px #000;*/
 }
 .site-branding p {
   color: #fff;
@@ -45,8 +81,12 @@ header {
   font-style: italic;
   font-size: 20px;
   line-height: 24px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 11px;
 }
 .site-branding h1 {
+  font-size: 24px;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 100px;
@@ -54,29 +94,235 @@ header {
   letter-spacing: -10px;
   font-style: italic;
   font-weight: bold;
+  padding: 10px 23px 1px 14px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
 }
+.site-branding h1 img {
+  height: 1em;
+  margin-top: -30px;
+  padding-right: 10px;
+}
+/*
+.site-branding{
+		p{
+			color: #fff;
+			font-weight: bold;
+			font-style: italic;
+			font-size: 20px;
+			line-height: 24px;
+			    background-color: rgba(0, 0, 0, 0.4);
+			    display: inline-block;
+			    padding: 11px;
+		}
+		h1{
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 100px;
+			color: #fff;
+			letter-spacing: -10px;
+			font-style: italic;
+			font-weight: bold;
+			padding: 10px 23px 1px 14px;
+			background-color: rgba(0, 0, 0, 0.4);
+			display: inline-block;
+			img{
+				    height: 1em;
+				    margin-top: -30px;
+				    padding-right: 10px;
+			}
+
+		}
+		position: relative;
+		top: 40%;
+		transform: translateY(-50%);
+		text-align:center;
+		}*/
 #site-navigation .menu {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
 }
-#site-navigation .menu ul {
-  text-align: right;
+#site-navigation .menu h1 {
+  position: relative;
+  top: 4px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 24px;
+  color: #333;
+  letter-spacing: -4px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
 }
-#site-navigation .menu ul li {
-  padding: 5px 10px;
-  margin-left: 15px;
-  border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.82);
+#site-navigation .menu h1 img {
+  height: 1em;
+  margin-top: -10px;
+  padding-right: 5px;
+}
+#site-navigation .menu div > ul {
+  padding-left: 5px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 0;
+}
+#site-navigation .menu div > ul.page-navigation {
+  float: right;
+}
+#site-navigation .menu div > ul li {
+  padding: 15px 10px;
+  margin-left: 7px;
+  margin-right: 7px;
   display: inline-block;
   list-style-type: none;
 }
-#site-navigation .menu ul li a {
-  color: #000;
+#site-navigation .menu div > ul li a {
+  color: #555;
   text-transform: uppercase;
 }
+#site-navigation .menu ul.project-navigation > li {
+  background-color: #555;
+  position: relative;
+  padding-left: 15px;
+  margin-right: 20px;
+}
+#site-navigation .menu ul.project-navigation > li a {
+  color: #fff;
+  text-transform: initial;
+}
+#site-navigation .menu ul.project-navigation > li ul {
+  z-index: 9;
+  text-align: left;
+  min-width: 100%;
+  background-color: #555;
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  left: 0;
+}
+#site-navigation .menu ul.project-navigation > li ul li {
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#site-navigation .menu ul.project-navigation > li ul li a {
+  display: block;
+  margin: 0;
+  padding: 10px 20px;
+}
+#site-navigation .menu ul.project-navigation > li:hover > ul {
+  display: block;
+}
+#site-navigation .menu ul.project-navigation > li:after {
+  content: url('UI/assets/media/icons/arrow-down.png');
+  vertical-align: text-bottom;
+}
 footer {
+  padding-top: 30px;
+  background-color: #ccc;
+  height: 300px;
+  color: #666;
+}
+footer h3 {
+  border-bottom: 2px solid #666;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+footer ul {
+  padding: 0;
+}
+footer ul li {
+  list-style-type: none;
+}
+.blurbs {
+  background-color: #e6e6e6;
+  padding-bottom: 30px;
+}
+.blurbs img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  height: 200px;
+}
+.blurbs h2 {
+  text-align: center;
+}
+.blurbs .blurb {
+  margin-top: 50px;
+  text-shadow: 1px 1px 0px #fff;
+}
+.quotation {
+  background-image: url('UI/assets/media/images/quotation-bg2.jpg');
+  background-size: cover;
+  background-position: top;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #fff;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-style: italic;
+}
+.quotation .author {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  display: block;
+  text-align: right;
+}
+.quotation .top-wave {
+  margin-top: 30px;
+}
+.quotation .bottom-wave {
+  margin-bottom: 30px;
+}
+.instagram {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.instagram h1 {
+  margin-left: 15px;
+}
+.instagram h1 img {
+  width: auto;
+  height: 1.7em;
+}
+.instagram .instagram-image {
+  position: relative;
+}
+.instagram .instagram-image img {
+  width: 100%;
+}
+.instagram .instagram-image a:hover span {
+  display: block;
+}
+.instagram span.likes {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+  background-image: url('UI/assets/media/icons/heart-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  padding-top: 18px;
+  padding-bottom: 21px;
+  margin-top: -18px;
+  display: none;
+}
+.project-description {
   background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.project-description h1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 56px;
 }
 /* LIBS */
 /*!

@@ -1,23 +1,99 @@
 #site-navigation{
 	.menu{
+		h1{
+			position: relative;
+			top: 4px;
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 24px;
+			color: #333;
+			letter-spacing: -4px;
+			font-style: italic;
+			font-weight: bold;
+			padding: 0;
+			background-color: transparent;
+			display: inline-block;
+			img{
+				    height: 1em;
+				    margin-top: -10px;
+				    padding-right: 5px;
+			}
+
+		}
 		position: absolute;
-		top: 20px;
-		right: 20px;
-		ul{
-			text-align: right;
+		left: 0;
+		width: 100%;
+		background-color: rgba(255,255,255, 0.9);
+		div>ul{
+			padding-left: 5px;
+			display: inline-block;
+			text-align: center;
+			margin-bottom: 0;
+			&.page-navigation{
+				float: right;
+			}
 			li{
-				padding: 5px 10px;
-				  margin-left: 15px;
-				  border-radius: 3px;
-				  background-color: rgba(255, 255, 255, 0.82);
+				padding: 15px 10px;
+				  margin-left: 7px;
+				  margin-right: 7px;
 				display:inline-block;
 				list-style-type: none;
 				a{
-					color: #000;
+					color: #555;
 					text-transform: uppercase;
 				}
+
+			}
+
+		}
+
+		ul.project-navigation{
+			>li{
+
+
+					background-color: #555;
+					position: relative;
+					padding-left: 15px;
+					margin-right: 20px;
+					a{
+						color: #fff;
+						text-transform: initial;
+					}
+					ul{
+
+						z-index: 9;
+						text-align: left;
+						min-width: 100%;
+						background-color: #555;
+						display: none;
+						position: absolute;
+						top: 100%;
+						padding-left: 0px;
+						padding-right: 0px;
+						left: 0;
+						li{
+							min-width: 100%;
+							padding:  0;
+							margin: 0;
+							a{
+								display: block;
+								margin: 0;
+								padding: 10px 20px;
+							}
+						}
+					}
+					&:hover > ul{
+						display: block;
+					}
+					&:after{
+						content: url('UI/assets/media/icons/arrow-down.png');
+						vertical-align: text-bottom;
+					}
+
 			}
 		}
+
+
 	}
-		
+
 }
